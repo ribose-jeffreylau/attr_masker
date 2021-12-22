@@ -16,7 +16,8 @@ RSpec.configure do |config|
     pp WITHOUT_MONGOID
 
     unless WITHOUT_ACTIVE_RECORD
-      require "database_cleaner-active_record"
+      warn "Gonna require database_cleaner-active_record"
+      pp require "database_cleaner-active_record"
       DatabaseCleaner[:active_record].strategy = :truncation
       DatabaseCleaner[:active_record].start
     end
@@ -25,7 +26,8 @@ RSpec.configure do |config|
     # to list them and to determine collection names to be cleaned.
     # Therefore, they are specified explicitly here.
     unless WITHOUT_MONGOID
-      require "database_cleaner-mongoid"
+      warn "Gonna require database_cleaner-mongoid"
+      pp require "database_cleaner-mongoid"
       strategy = DatabaseCleaner::Mongoid::Deletion.new(only: %w[users])
       DatabaseCleaner[:mongoid].instance_variable_set :'@strategy', strategy
       DatabaseCleaner[:mongoid].start
