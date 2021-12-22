@@ -22,20 +22,20 @@ jobs:
       matrix:
         ruby:
           - "3.0"
-          - "2.7"
-          - "2.6"
-          - "2.5"
-          - "2.4"
+          # - "2.7"
+          # - "2.6"
+          # - "2.5"
+          # - "2.4"
         gemfile:
           - Rails-6.1
-          - Rails-6.0
-          - Rails-5.2
-          - Rails-5.1
-          - Rails-5.0
+          # - Rails-6.0
+          # - Rails-5.2
+          # - Rails-5.1
+          # - Rails-5.0
         without:
-          - ~
+          # - ~
           - activerecord
-          - mongoid
+          # - mongoid
 
         exclude:
           # Rails 4.2 refuses to install on Ruby 2.7 and newer.
