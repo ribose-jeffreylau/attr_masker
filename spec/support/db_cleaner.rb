@@ -1,4 +1,4 @@
-require "database_cleaner"
+require "database_cleaner-core"
 
 RSpec.configure do |config|
   config.before(:suite) do
