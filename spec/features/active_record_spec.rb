@@ -21,7 +21,7 @@ RSpec.describe "Attr Masker gem", :suppress_progressbar do
       if WITHOUT_ACTIVE_RECORD
         puts "all: gonna skip: Active Record specs disabled with WITHOUT=activerecord shell variable"
         warn "all: gonna skip: Active Record specs disabled with WITHOUT=activerecord shell variable"
-        # expect(defined?(::ActiveRecord)).to be(nil)
+        expect(defined?(::ActiveRecord)).to be(nil)
 
         skip "Active Record specs disabled with WITHOUT=activerecord shell " \
           "variable"

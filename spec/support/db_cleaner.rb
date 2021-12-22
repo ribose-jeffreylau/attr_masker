@@ -2,6 +2,19 @@ require "database_cleaner"
 
 RSpec.configure do |config|
   config.before(:suite) do
+    # TODO: puts
+    require 'pp'
+
+    puts "support: What is WITHOUT_ACTIVE_RECORD?, #{WITHOUT_ACTIVE_RECORD.inspect}"
+    warn "support: What is WITHOUT_ACTIVE_RECORD?, #{WITHOUT_ACTIVE_RECORD.inspect}"
+    pp WITHOUT_ACTIVE_RECORD
+
+    puts
+
+    puts "support: What is WITHOUT_MONGOID?, #{WITHOUT_MONGOID.inspect}"
+    warn "support: What is WITHOUT_MONGOID?, #{WITHOUT_MONGOID.inspect}"
+    pp WITHOUT_MONGOID
+
     unless WITHOUT_ACTIVE_RECORD
       require "database_cleaner-active_record"
       DatabaseCleaner[:active_record].strategy = :truncation
