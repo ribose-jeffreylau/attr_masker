@@ -7,52 +7,32 @@ RSpec.describe "Attr Masker gem", :suppress_progressbar do
   context "when used with ActiveRecord" do
     before :all do
       require 'pp'
-
-      puts "all: What is WITHOUT_ACTIVE_RECORD?, #{WITHOUT_ACTIVE_RECORD.inspect}"
       warn "all: What is WITHOUT_ACTIVE_RECORD?, #{WITHOUT_ACTIVE_RECORD.inspect}"
-      pp WITHOUT_ACTIVE_RECORD
-
-      puts
-
-      puts "all: What is WITHOUT_MONGOID?, #{WITHOUT_MONGOID.inspect}"
       warn "all: What is WITHOUT_MONGOID?, #{WITHOUT_MONGOID.inspect}"
-      pp WITHOUT_MONGOID
 
       if WITHOUT_ACTIVE_RECORD
-        puts "all: gonna skip: Active Record specs disabled with WITHOUT=activerecord shell variable"
         warn "all: gonna skip: Active Record specs disabled with WITHOUT=activerecord shell variable"
         expect(defined?(::ActiveRecord)).to be(nil)
 
         skip "Active Record specs disabled with WITHOUT=activerecord shell " \
           "variable"
       else
-        puts "all: NOT gonna skip: Active Record specs disabled with WITHOUT=activerecord shell variable"
         warn "all: NOT gonna skip: Active Record specs disabled with WITHOUT=activerecord shell variable"
       end
     end
 
     before do
       require 'pp'
-
-      puts "What is WITHOUT_ACTIVE_RECORD?, #{WITHOUT_ACTIVE_RECORD.inspect}"
       warn "What is WITHOUT_ACTIVE_RECORD?, #{WITHOUT_ACTIVE_RECORD.inspect}"
-      pp WITHOUT_ACTIVE_RECORD
-
-      puts
-
-      puts "What is WITHOUT_MONGOID?, #{WITHOUT_MONGOID.inspect}"
       warn "What is WITHOUT_MONGOID?, #{WITHOUT_MONGOID.inspect}"
-      pp WITHOUT_MONGOID
 
       if WITHOUT_ACTIVE_RECORD
-        puts "gonna skip: Active Record specs disabled with WITHOUT=activerecord shell variable"
         warn "gonna skip: Active Record specs disabled with WITHOUT=activerecord shell variable"
         expect(defined?(::ActiveRecord)).to be(nil)
 
         skip "Active Record specs disabled with WITHOUT=activerecord shell " \
           "variable"
       else
-        puts "NOT gonna skip: Active Record specs disabled with WITHOUT=activerecord shell variable"
         warn "NOT gonna skip: Active Record specs disabled with WITHOUT=activerecord shell variable"
       end
     end

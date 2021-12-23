@@ -2,21 +2,13 @@ require "database_cleaner-core"
 
 RSpec.configure do |config|
   config.before(:suite) do
-    # TODO: puts
+
     require 'pp'
-
-    puts "support: What is WITHOUT_ACTIVE_RECORD?, #{WITHOUT_ACTIVE_RECORD.inspect}"
-    warn "support: What is WITHOUT_ACTIVE_RECORD?, #{WITHOUT_ACTIVE_RECORD.inspect}"
-    pp WITHOUT_ACTIVE_RECORD
-
-    puts
-
-    puts "support: What is WITHOUT_MONGOID?, #{WITHOUT_MONGOID.inspect}"
-    warn "support: What is WITHOUT_MONGOID?, #{WITHOUT_MONGOID.inspect}"
-    pp WITHOUT_MONGOID
+    warn "support/dbc: What is WITHOUT_ACTIVE_RECORD?, #{WITHOUT_ACTIVE_RECORD.inspect}"
+    warn "support/dbc: What is WITHOUT_MONGOID?, #{WITHOUT_MONGOID.inspect}"
 
     unless WITHOUT_ACTIVE_RECORD
-      warn "Gonna require database_cleaner-active_record"
+      warn "support/dbc: Gonna require database_cleaner-active_record"
       pp require "database_cleaner-active_record"
       DatabaseCleaner[:active_record].strategy = :truncation
       DatabaseCleaner[:active_record].start
@@ -26,7 +18,7 @@ RSpec.configure do |config|
     # to list them and to determine collection names to be cleaned.
     # Therefore, they are specified explicitly here.
     unless WITHOUT_MONGOID
-      warn "Gonna require database_cleaner-mongoid"
+      warn "support/dbc: Gonna require database_cleaner-mongoid"
       pp require "database_cleaner-mongoid"
       strategy = DatabaseCleaner::Mongoid::Deletion.new(only: %w[users])
       DatabaseCleaner[:mongoid].instance_variable_set :'@strategy', strategy
@@ -35,7 +27,7 @@ RSpec.configure do |config|
   end
 
   config.around(:each) do |example|
-    warn "DatabaseCleaner.cleaners are:"
+    warn "support/dbc: DatabaseCleaner.cleaners are:"
     pp DatabaseCleaner.cleaners
     DatabaseCleaner.cleaning do
       example.run
