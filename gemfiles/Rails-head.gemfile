@@ -1,4 +1,4 @@
 eval_gemfile "common.gemfile"
 
-gem "activerecord", github: "rails/rails"
+gem "activerecord", github: "rails/rails", require: false
 gem "arel", github: "rails/arel"
