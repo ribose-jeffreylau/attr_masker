@@ -26,7 +26,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency("bundler", ">= 1.15")
   gem.add_development_dependency("combustion", "~> 1.0")
   gem.add_development_dependency("database_cleaner", "~> 2.0")
-  gem.add_development_dependency("database_cleaner-active_record", "~> 2.0")
+  # gem.add_development_dependency("database_cleaner-active_record", "~> 2.0")
   gem.add_development_dependency("database_cleaner-mongoid", "~> 2.0")
   # Older versions aren't needed as we don't support Rails < 5
   gem.add_development_dependency("mongoid", ">= 5")
