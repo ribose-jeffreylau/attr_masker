@@ -5,6 +5,11 @@ if WITHOUT_ACTIVE_RECORD
   Object.send(:remove_const, "ActiveRecord")
 end
 
+
 require 'pp'
 warn "... What is WITHOUT_ACTIVE_RECORD?, #{WITHOUT_ACTIVE_RECORD.inspect}"
 warn "... What is WITHOUT_MONGOID?, #{WITHOUT_MONGOID.inspect}"
+
+
+warn "support/00: DatabaseCleaner.cleaners are:"
+pp DatabaseCleaner.cleaners
