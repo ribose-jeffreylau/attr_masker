@@ -35,6 +35,8 @@ RSpec.configure do |config|
   end
 
   config.around(:each) do |example|
+    warn "DatabaseCleaner.cleaners are:"
+    pp DatabaseCleaner.cleaners
     DatabaseCleaner.cleaning do
       example.run
     end
